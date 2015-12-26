@@ -53,7 +53,7 @@
         data-chapter-title="FTP"
         data-filepath="dev/ftp.md"
         data-basepath=".."
-        data-revision="Fri Dec 25 2015 10:38:12 GMT+0800 (CST)"
+        data-revision="Sat Dec 26 2015 22:30:02 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -331,7 +331,21 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="ftp">FTP</h1>
+<pre><code>yum list vsftpd
+yum install vsftpd
+&#x4FEE;&#x6539;&#x914D;&#x7F6E;
+vi /etc/vsftpd/vsftpd.conf &#x5C06;anonymous_enable=YES&#x7684;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A;NO
+&#x589E;&#x52A0;FTP&#x7528;&#x6237;&#x3001;&#x5E76;&#x8BBE;&#x7F6E;&#x5BC6;&#x7801;
+&#x3000;&#x3000;&#x547D;&#x4EE4;&#xFF1A;useradd hehaiyang -s /sbin/nologin -d /home/FTP 
+&#x5176;&#x4E2D;hehaiyang&#x4E3A;FTP&#x8D26;&#x53F7;&#xFF0C;/home/FTP&#x4E3A;&#x8BBE;&#x7F6E;&#x7684;&#x76EE;&#x5F55;&#x8DEF;&#x5F84;
+&#x8FD0;&#x884C;&#x547D;&#x4EE4; passwd hehaiyang &#x4E4B;&#x540E;&#x8F93;&#x5165;&#x4E24;&#x6B21;&#x5BC6;&#x7801;&#x5373;&#x53EF;
+&#x8BBE;&#x7F6E;&#x521B;&#x5EFA;&#x7684;FTP&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x7684;&#x6743;&#x9650;
+chmod 777 /home/FTP 
+&#x542F;&#x52A8;FTP&#x670D;&#x52A1;
+&#x547D;&#x4EE4;&#xFF1A;service vsftpd start
 
+&#x53C2;&#x8003;&#xFF1A;http://os.51cto.com/art/201008/222036.htm
+</code></pre>
                     
                     </section>
                 

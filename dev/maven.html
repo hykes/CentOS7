@@ -53,7 +53,7 @@
         data-chapter-title="Maven"
         data-filepath="dev/maven.md"
         data-basepath=".."
-        data-revision="Fri Dec 25 2015 10:38:12 GMT+0800 (CST)"
+        data-revision="Sat Dec 26 2015 22:30:02 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -331,7 +331,20 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="maven">Maven</h1>
-
+<pre><code>cd /home
+wget http://mirrors.hust.edu.cn/apache/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz
+tar -xzvf apache-maven-3.1.1-bin.tar.gz
+mv apache-maven-3.1.1 maven
+cd maven
+vi /etc/profile
+#maven
+export M2_HOME=/home/maven
+export PATH=$PATH:$M2_HOME/bin
+&#x4FDD;&#x5B58;&#x9000;&#x51FA;&#x540E;&#x8FD0;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x4F7F;&#x914D;&#x7F6E;&#x751F;&#x6548;
+source /etc/profile
+&#x9A8C;&#x8BC1;&#x7248;&#x672C;
+mvn -v
+</code></pre>
                     
                     </section>
                 

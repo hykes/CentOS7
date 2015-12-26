@@ -53,7 +53,7 @@
         data-chapter-title="安装"
         data-filepath="jenkins/install.md"
         data-basepath=".."
-        data-revision="Fri Dec 25 2015 10:38:12 GMT+0800 (CST)"
+        data-revision="Sat Dec 26 2015 22:30:02 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -331,7 +331,18 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="jenkins">Jenkins</h1>
-
+<pre><code>&#x65B9;&#x5F0F;&#x4E00;
+    sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+    sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+    yum install jenkins
+&#x65B9;&#x5F0F;&#x4E8C;&#xFF08;&#x672C;&#x6587;&#x91C7;&#x7528;&#xFF09;
+    &#x4E0B;&#x8F7D;war&#x5305; http://mirrors.jenkins-ci.org/war/1.643/
+    &#x914D;&#x7F6E;tomcat/conf/server.xml &#x590D;&#x5236;&#x4E00;&#x4EFD;service &#x914D;&#x7F6E;&#xFF0C;&#x4FEE;&#x6539;&#x7AEF;&#x53E3;&#x53F7;/appBase/log&#x524D;&#x7F00;&#xFF0C;&#x5176;&#x5B83;&#x4E0D;&#x53D8;&#x3002;
+    &#x91CD;&#x542F;&#x670D;&#x52A1;
+&#x63D2;&#x4EF6;&#x5B89;&#x88C5;
+    git/maven/email
+    &#x8BBE;&#x7F6E;tomcat&#x7F16;&#x7801;utf-8
+</code></pre>
                     
                     </section>
                 
