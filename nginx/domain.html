@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>JDK | CentOS7 阿里云ECS学习</title>
+        <title>多域名绑定 | CentOS7 阿里云ECS学习</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.2">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../dev/mariadb.html" />
+    <link rel="next" href="../nginx/error.html" />
     
     
-    <link rel="prev" href="../dev/index.html" />
+    <link rel="prev" href="../nginx/catalog.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="2.1"
-        data-chapter-title="JDK"
-        data-filepath="dev/jdk.md"
+        data-level="3.3"
+        data-chapter-title="多域名绑定"
+        data-filepath="nginx/domain.md"
         data-basepath=".."
         data-revision="Sat Jan 16 2016 12:11:02 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -134,7 +134,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="2.1" data-path="dev/jdk.html">
+        <li class="chapter " data-level="2.1" data-path="dev/jdk.html">
             
                 
                     <a href="../dev/jdk.html">
@@ -275,7 +275,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3" data-path="nginx/domain.html">
+        <li class="chapter active" data-level="3.3" data-path="nginx/domain.html">
             
                 
                     <a href="../nginx/domain.html">
@@ -432,11 +432,127 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="jdk">JDK</h1>
-<pre><code>yum list java*
-yum list java-1.7*  
-yum install java-1.7.0-openjdk* -y 
-java -version
+                        <h1 id="&#x591A;&#x57DF;&#x540D;&#x7ED1;&#x5B9A;">&#x591A;&#x57DF;&#x540D;&#x7ED1;&#x5B9A;</h1>
+<pre><code>&#x6279;&#x91CF;&#x8BBE;&#x7F6E;&#x591A;&#x57DF;&#x540D;&#x7ED1;&#x5B9A;
+http://www.server110.com/nginx/201309/1248.html
+
+http://zhidao.baidu.com/link?url=mGDEfPPlJwQVK9EgrmDGdp9zbC8IC6MHPYVqF9tYWv0MUprxhVwRuOzaw2M7jb-zWbnlCC33WEj31a48OmRx4m9j0Ju1yvi6zlfiLMdWbTC
+&#x591A;&#x4E2A;.conf&#x65B9;&#x6CD5;&#xFF08;&#x4F18;&#x70B9;&#x662F;&#x7075;&#x6D3B;&#xFF0C;&#x7F3A;&#x70B9;&#x5C31;&#x662F;&#x7AD9;&#x70B9;&#x6BD4;&#x8F83;&#x591A;&#x914D;&#x7F6E;&#x8D77;&#x6765;&#x9EBB;&#x70E6;&#xFF09;
+&#x8FD9;&#x91CC;&#x4EE5;&#x914D;&#x7F6E;2&#x4E2A;&#x7AD9;&#x70B9;&#xFF08;2&#x4E2A;&#x57DF;&#x540D;&#xFF09;&#x4E3A;&#x4F8B;&#xFF0C;n &#x4E2A;&#x7AD9;&#x70B9;&#x53EF;&#x4EE5;&#x76F8;&#x5E94;&#x589E;&#x52A0;&#x8C03;&#x6574;&#xFF0C;&#x5047;&#x8BBE;&#xFF1A;
+IP&#x5730;&#x5740;: 192.168.1.100
+&#x57DF;&#x540D;1 example1.com &#x653E;&#x5728; /www/example1
+&#x57DF;&#x540D;2 example2.com &#x653E;&#x5728; /www/example2
+
+&#x914D;&#x7F6E; nginx virtual hosting &#x7684;&#x57FA;&#x672C;&#x601D;&#x8DEF;&#x548C;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;
+&#x628A;2&#x4E2A;&#x7AD9;&#x70B9; example1.com, example2.com &#x653E;&#x5230; nginx &#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x7684;&#x76EE;&#x5F55; /www/
+&#x7ED9;&#x6BCF;&#x4E2A;&#x7AD9;&#x70B9;&#x5206;&#x522B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; nginx &#x914D;&#x7F6E;&#x6587;&#x4EF6; example1.com.conf&#xFF0C;example2.com.conf, &#x5E76;&#x628A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x653E;&#x5230; /usr/local/nginx/vhosts/
+&#x7136;&#x540E;&#x5728; /usr/local/nginx/nginx.conf &#x91CC;&#x9762;&#x52A0;&#x4E00;&#x53E5; include &#x628A;&#x6B65;&#x9AA4;2&#x521B;&#x5EFA;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5168;&#x90E8;&#x5305;&#x542B;&#x8FDB;&#x6765;&#xFF08;&#x7528; * &#x53F7;&#xFF09;
+&#x91CD;&#x542F; nginx
+1&#x3001;&#x6253;&#x5F00; /usr/local/nginx/nginix.conf &#x6587;&#x4EF6;&#xFF0C;&#x5728;&#x76F8;&#x5E94;&#x4F4D;&#x7F6E;&#x52A0;&#x5165; include &#x628A;&#x4EE5;&#x4E0A;2&#x4E2A;&#x6587;&#x4EF6;&#x5305;&#x542B;&#x8FDB;&#x6765;
+user  www www;
+worker_processes  1;
+
+# main server error log
+error_log      /usr/local/nginx/log/nginx/error.log ;
+pid     /usr/local/nginx/nginx.pid;
+
+events {
+worker_connections  51200;
+}
+# main server config
+http {
+include       mime.types;
+default_type  application/octet-stream;
+log_format  main  &#x2018;$remote_addr &#x2013; $remote_user [$time_local] $request &#x2018;
+&#x2018;&#x201D;$status&#x201D; $body_bytes_sent &#x201C;$http_referer&#x201D; &#x2018;
+&#x2018;&#x201D;$http_user_agent&#x201D; &#x201C;$http_x_forwarded_for&#x201D;&#x2018;;
+
+sendfile        on;
+#tcp_nopush     on;
+#keepalive_timeout  0;
+keepalive_timeout  65;
+gzip  on;
+
+server {
+listen         80;
+server_name     _;
+access_log      /usr/local/nginx/log/nginx/access.log main;
+server_name_in_redirect  off;
+location / {
+root  /usr/share/nginx/html;
+index index.html;
+}
+}
+# &#x5305;&#x542B;&#x6240;&#x6709;&#x7684;&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;
+include /usr/local/nginx/vhosts/*;
+}
+
+2&#x3001;&#x5728; /usr/local/nginx &#x4E0B;&#x521B;&#x5EFA; vhosts &#x76EE;&#x5F55;
+mkdir /usr/local/nginx/vhosts
+
+3&#x3001;&#x5728; /usr/local/nginx/vhosts/ &#x91CC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x5B57;&#x4E3A; example1.com.conf &#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x628A;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#x62F7;&#x8FDB;&#x53BB;
+server {
+        listen  80;
+        server_name  example1.com www. example1.com;
+
+        access_log  /www/access_ example1.log  main;
+
+        location / {
+            root   /www/example1.com;
+            index  index.php index.html index.htm;
+        }
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
+
+       # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        location ~ .php$ {
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  /www/example1.com/$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+
+        location ~ /.ht {
+            deny  all;
+        }
+}
+
+3&#x3001;&#x5728; /usr/local/nginx/vhosts/ &#x91CC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x5B57;&#x4E3A; example2.com.conf &#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x628A;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#x62F7;&#x8FDB;&#x53BB;
+server {
+        listen  80;
+        server_name  example2.com www. example2.com;
+
+        access_log  /www/access_ example1.log  main;
+
+        location / {
+            root   /www/example2.com;
+            index  index.php index.html index.htm;
+        }
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
+
+       # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        location ~ .php$ {
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  /www/example2.com/$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+
+        location ~ /.ht {
+            deny  all;
+        }
+}
+
+5&#x3001;&#x91CD;&#x542F; Nginx
+
+/etc/init.d/nginx restart
 </code></pre>
                     
                     </section>
@@ -447,10 +563,10 @@ java -version
         </div>
 
         
-        <a href="../dev/index.html" class="navigation navigation-prev " aria-label="Previous page: 环境搭建"><i class="fa fa-angle-left"></i></a>
+        <a href="../nginx/catalog.html" class="navigation navigation-prev " aria-label="Previous page: 目录浏览功能"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../dev/mariadb.html" class="navigation navigation-next " aria-label="Next page: MariaDB"><i class="fa fa-angle-right"></i></a>
+        <a href="../nginx/error.html" class="navigation navigation-next " aria-label="Next page: 常见问题"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

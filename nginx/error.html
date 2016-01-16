@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>JDK | CentOS7 阿里云ECS学习</title>
+        <title>常见问题 | CentOS7 阿里云ECS学习</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.2">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../dev/mariadb.html" />
+    <link rel="next" href="../jenkins/index.html" />
     
     
-    <link rel="prev" href="../dev/index.html" />
+    <link rel="prev" href="../nginx/domain.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="2.1"
-        data-chapter-title="JDK"
-        data-filepath="dev/jdk.md"
+        data-level="3.4"
+        data-chapter-title="常见问题"
+        data-filepath="nginx/error.md"
         data-basepath=".."
         data-revision="Sat Jan 16 2016 12:11:02 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -134,7 +134,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="2.1" data-path="dev/jdk.html">
+        <li class="chapter " data-level="2.1" data-path="dev/jdk.html">
             
                 
                     <a href="../dev/jdk.html">
@@ -290,7 +290,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.4" data-path="nginx/error.html">
+        <li class="chapter active" data-level="3.4" data-path="nginx/error.html">
             
                 
                     <a href="../nginx/error.html">
@@ -432,11 +432,21 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="jdk">JDK</h1>
-<pre><code>yum list java*
-yum list java-1.7*  
-yum install java-1.7.0-openjdk* -y 
-java -version
+                        <h1 id="&#x5E38;&#x89C1;&#x95EE;&#x9898;">&#x5E38;&#x89C1;&#x95EE;&#x9898;</h1>
+<pre><code>nginx: [error] open() &quot;/usr/local/nginx/logs/nginx.pid&quot; failed (2: No such file or directory)
+
+&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;
+[root@localhost nginx]# /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+
+&#x4F7F;&#x7528;nginx -c&#x7684;&#x53C2;&#x6570;&#x6307;&#x5B9A;nginx.conf&#x6587;&#x4EF6;&#x7684;&#x4F4D;&#x7F6E;
+
+[root@localhost nginx]# cd logs/
+[root@localhost logs]# ll
+&#x603B;&#x7528;&#x91CF; 12
+-rw-r--r-- 1 root root 1246 12&#x6708;  9 18:10 access.log
+-rw-r--r-- 1 root root  516 12&#x6708; 10 15:39 error.log
+-rw-r--r-- 1 root root    5 12&#x6708; 10 15:38 nginx.pid
+&#x6B64;&#x65F6;nginx.pid&#x6587;&#x4EF6;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;
 </code></pre>
                     
                     </section>
@@ -447,10 +457,10 @@ java -version
         </div>
 
         
-        <a href="../dev/index.html" class="navigation navigation-prev " aria-label="Previous page: 环境搭建"><i class="fa fa-angle-left"></i></a>
+        <a href="../nginx/domain.html" class="navigation navigation-prev " aria-label="Previous page: 多域名绑定"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../dev/mariadb.html" class="navigation navigation-next " aria-label="Next page: MariaDB"><i class="fa fa-angle-right"></i></a>
+        <a href="../jenkins/index.html" class="navigation navigation-next " aria-label="Next page: Jenkins"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

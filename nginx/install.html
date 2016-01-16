@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>JDK | CentOS7 阿里云ECS学习</title>
+        <title>安装 | CentOS7 阿里云ECS学习</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.2">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../dev/mariadb.html" />
+    <link rel="next" href="../nginx/catalog.html" />
     
     
-    <link rel="prev" href="../dev/index.html" />
+    <link rel="prev" href="../nginx/index.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="2.1"
-        data-chapter-title="JDK"
-        data-filepath="dev/jdk.md"
+        data-level="3.1"
+        data-chapter-title="安装"
+        data-filepath="nginx/install.md"
         data-basepath=".."
         data-revision="Sat Jan 16 2016 12:11:02 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -134,7 +134,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="2.1" data-path="dev/jdk.html">
+        <li class="chapter " data-level="2.1" data-path="dev/jdk.html">
             
                 
                     <a href="../dev/jdk.html">
@@ -245,7 +245,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1" data-path="nginx/install.html">
+        <li class="chapter active" data-level="3.1" data-path="nginx/install.html">
             
                 
                     <a href="../nginx/install.html">
@@ -432,11 +432,40 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="jdk">JDK</h1>
-<pre><code>yum list java*
-yum list java-1.7*  
-yum install java-1.7.0-openjdk* -y 
-java -version
+                        <h1 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h1>
+<pre><code>&#x53C2;&#x8003; http://www.cnblogs.com/skynet/p/4146083.html
+cd /home
+wget http://nginx.org/download/nginx-1.9.8.tar.gz
+tar -zxvf nginx-1.9.8.tar.gz
+mv nginx-1.9.8/ nginx
+cd nginx
+#http://jingyan.baidu.com/article/2fb0ba404f814e00f2ec5f9e.html
+./configure &#x5B89;&#x88C5;&#x76EE;&#x5F55;
+&#xFF03;&#x7F16;&#x8BD1;&#xFF0F;&#x5B89;&#x88C5;
+make &amp; make install
+&#xFF03;&#x8F6F;&#x94FE;&#x63A5;
+ln -s /usr/local/nginx/sbin/nginx /usr/local/bin/nginx
+ps -ef|grep nginx
+
+&#x542F;&#x7528;nginx&#x547D;&#x4EE4;
+#&#x65B9;&#x6CD5;1
+[root@admin nginx-1.2.6]# /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+#&#x65B9;&#x6CD5;2
+[root@admin nginx-1.2.6]# cd /usr/local/nginx/sbin
+[root@admin sbin]# ./nginx
+
+&#x505C;&#x6B62;nginx&#x547D;&#x4EE4;
+#&#x67E5;&#x8BE2;nginx&#x4E3B;&#x8FDB;&#x7A0B;&#x53F7;
+ps -ef | grep nginx
+#&#x505C;&#x6B62;&#x8FDB;&#x7A0B;
+kill -QUIT &#x4E3B;&#x8FDB;&#x7A0B;&#x53F7;
+#&#x5FEB;&#x901F;&#x505C;&#x6B62;
+kill -TERM &#x4E3B;&#x8FDB;&#x7A0B;&#x53F7;
+#&#x5F3A;&#x5236;&#x505C;&#x6B62;
+pkill -9 nginx
+
+&#x91CD;&#x542F;nginx&#x547D;&#x4EE4;
+[root@admin local]# /usr/local/nginx/sbin/nginx -s reload
 </code></pre>
                     
                     </section>
@@ -447,10 +476,10 @@ java -version
         </div>
 
         
-        <a href="../dev/index.html" class="navigation navigation-prev " aria-label="Previous page: 环境搭建"><i class="fa fa-angle-left"></i></a>
+        <a href="../nginx/index.html" class="navigation navigation-prev " aria-label="Previous page: Nginx"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../dev/mariadb.html" class="navigation navigation-next " aria-label="Next page: MariaDB"><i class="fa fa-angle-right"></i></a>
+        <a href="../nginx/catalog.html" class="navigation navigation-next " aria-label="Next page: 目录浏览功能"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

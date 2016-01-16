@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>JDK | CentOS7 阿里云ECS学习</title>
+        <title>目录浏览功能 | CentOS7 阿里云ECS学习</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.2">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../dev/mariadb.html" />
+    <link rel="next" href="../nginx/domain.html" />
     
     
-    <link rel="prev" href="../dev/index.html" />
+    <link rel="prev" href="../nginx/install.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="2.1"
-        data-chapter-title="JDK"
-        data-filepath="dev/jdk.md"
+        data-level="3.2"
+        data-chapter-title="目录浏览功能"
+        data-filepath="nginx/catalog.md"
         data-basepath=".."
         data-revision="Sat Jan 16 2016 12:11:02 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -134,7 +134,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="2.1" data-path="dev/jdk.html">
+        <li class="chapter " data-level="2.1" data-path="dev/jdk.html">
             
                 
                     <a href="../dev/jdk.html">
@@ -260,7 +260,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="nginx/catalog.html">
+        <li class="chapter active" data-level="3.2" data-path="nginx/catalog.html">
             
                 
                     <a href="../nginx/catalog.html">
@@ -432,11 +432,28 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="jdk">JDK</h1>
-<pre><code>yum list java*
-yum list java-1.7*  
-yum install java-1.7.0-openjdk* -y 
-java -version
+                        <h1 id="&#x76EE;&#x5F55;&#x6D4F;&#x89C8;&#x529F;&#x80FD;">&#x76EE;&#x5F55;&#x6D4F;&#x89C8;&#x529F;&#x80FD;</h1>
+<pre><code>1&#x3001;&#x5F00;&#x542F;&#x5168;&#x7AD9;&#x6240;&#x6709;&#x76EE;&#x5F55;&#x6D4F;&#x89C8;&#x529F;&#x80FD;
+
+vi  /usr/local/nginx/conf/nginx.conf   #&#x7F16;&#x8F91;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5728;http {&#x4E0B;&#x9762;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;
+autoindex on;   #&#x5F00;&#x542F;nginx&#x76EE;&#x5F55;&#x6D4F;&#x89C8;&#x529F;&#x80FD;
+autoindex_exact_size off;   #&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x4ECE;KB&#x5F00;&#x59CB;&#x663E;&#x793A;
+autoindex_localtime on;   #&#x663E;&#x793A;&#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x4E3A;&#x670D;&#x52A1;&#x5668;&#x672C;&#x5730;&#x65F6;&#x95F4;
+:wq!  #&#x4FDD;&#x5B58;&#xFF0C;&#x9000;&#x51FA;
+service nginx reload   #&#x91CD;&#x65B0;&#x52A0;&#x8F7D;nginx&#x914D;&#x7F6E;
+
+2&#x3001;&#x53EA;&#x6253;&#x5F00;&#x7F51;&#x7AD9;&#x90E8;&#x5206;&#x76EE;&#x5F55;&#x6D4F;&#x89C8;&#x529F;&#x80FD;
+
+&#x53EA;&#x6253;&#x5F00; http://www.yourdomain.com/soft &#x76EE;&#x5F55;&#x6D4F;&#x89C8;
+
+vi  /usr/local/nginx/conf/nginx.conf   #&#x7F16;&#x8F91;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5728;server {&#x4E0B;&#x9762;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;
+location   /soft {
+autoindex on;
+autoindex_exact_size off;
+autoindex_localtime on;
+:wq!  #&#x4FDD;&#x5B58;&#xFF0C;&#x9000;&#x51FA;
+
+[root@localhost sbin]# ./nginx -s reload
 </code></pre>
                     
                     </section>
@@ -447,10 +464,10 @@ java -version
         </div>
 
         
-        <a href="../dev/index.html" class="navigation navigation-prev " aria-label="Previous page: 环境搭建"><i class="fa fa-angle-left"></i></a>
+        <a href="../nginx/install.html" class="navigation navigation-prev " aria-label="Previous page: 安装"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../dev/mariadb.html" class="navigation navigation-next " aria-label="Next page: MariaDB"><i class="fa fa-angle-right"></i></a>
+        <a href="../nginx/domain.html" class="navigation navigation-next " aria-label="Next page: 多域名绑定"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

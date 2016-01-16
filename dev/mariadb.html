@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>JDK | CentOS7 阿里云ECS学习</title>
+        <title>MariaDB | CentOS7 阿里云ECS学习</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.2">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../dev/mariadb.html" />
+    <link rel="next" href="../dev/git.html" />
     
     
-    <link rel="prev" href="../dev/index.html" />
+    <link rel="prev" href="../dev/jdk.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="2.1"
-        data-chapter-title="JDK"
-        data-filepath="dev/jdk.md"
+        data-level="2.2"
+        data-chapter-title="MariaDB"
+        data-filepath="dev/mariadb.md"
         data-basepath=".."
         data-revision="Sat Jan 16 2016 12:11:02 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -134,7 +134,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="2.1" data-path="dev/jdk.html">
+        <li class="chapter " data-level="2.1" data-path="dev/jdk.html">
             
                 
                     <a href="../dev/jdk.html">
@@ -149,7 +149,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="dev/mariadb.html">
+        <li class="chapter active" data-level="2.2" data-path="dev/mariadb.html">
             
                 
                     <a href="../dev/mariadb.html">
@@ -432,11 +432,23 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="jdk">JDK</h1>
-<pre><code>yum list java*
-yum list java-1.7*  
-yum install java-1.7.0-openjdk* -y 
-java -version
+                        <h1 id="mariadb">MariaDB</h1>
+<blockquote>
+<p>MariaDB&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x662F;MySQL&#x7684;&#x4E00;&#x4E2A;&#x5206;&#x652F;&#xFF0C;&#x4E3B;&#x8981;&#x7531;&#x5F00;&#x6E90;&#x793E;&#x533A;&#x5728;&#x7EF4;&#x62A4;&#xFF0C;&#x91C7;&#x7528;GPL&#x6388;&#x6743;&#x8BB8;&#x53EF; MariaDB&#x7684;&#x76EE;&#x7684;&#x662F;&#x5B8C;&#x5168;&#x517C;&#x5BB9;MySQL&#xFF0C;&#x5305;&#x62EC;API&#x548C;&#x547D;&#x4EE4;&#x884C;&#xFF0C;&#x4F7F;&#x4E4B;&#x80FD;&#x8F7B;&#x677E;&#x6210;&#x4E3A;MySQL&#x7684;&#x4EE3;&#x66FF;&#x54C1;&#x3002;&#x5728;&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x65B9;&#x9762;&#xFF0C;&#x4F7F;&#x7528;XtraDB&#xFF08;&#x82F1;&#x8BED;&#xFF1A;XtraDB&#xFF09;&#x6765;&#x4EE3;&#x66FF;MySQL&#x7684;InnoDB&#x3002;</p>
+</blockquote>
+<pre><code>centos&#x4E0B;yum&#x6682;&#x65F6;&#x6CA1;&#x6709;mysql-server&#x76F4;&#x63A5;&#x5B89;&#x88C5;&#x5305;&#xFF1B;
+MariaDB&#x662F;MySQL&#x793E;&#x533A;&#x5F00;&#x53D1;&#x7684;&#x5206;&#x652F;&#xFF0C;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x589E;&#x5F3A;&#x578B;&#x7684;&#x66FF;&#x4EE3;&#x54C1;;
+&#x5B89;&#x88C5;MariaDB
+yum -y  install mariadb-server mariadb mariadb-devel
+systemctl start mariadb
+systemctl enable mariadb
+mysql_secure_installation
+firewall-cmd --permanent --add-service mysql
+systemctl restart firewalld.service
+iptables -L -n|grep 3306
+&#x767B;&#x5F55;&#x6570;&#x636E;&#x5E93;&#x67E5;&#x770B;&#x4E0B;&#x662F;&#x5426;&#x6709;&#x53D8;&#x597D;
+msyql -uroot -p
+show databases;
 </code></pre>
                     
                     </section>
@@ -447,10 +459,10 @@ java -version
         </div>
 
         
-        <a href="../dev/index.html" class="navigation navigation-prev " aria-label="Previous page: 环境搭建"><i class="fa fa-angle-left"></i></a>
+        <a href="../dev/jdk.html" class="navigation navigation-prev " aria-label="Previous page: JDK"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../dev/mariadb.html" class="navigation navigation-next " aria-label="Next page: MariaDB"><i class="fa fa-angle-right"></i></a>
+        <a href="../dev/git.html" class="navigation navigation-next " aria-label="Next page: Git"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
